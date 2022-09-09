@@ -27,11 +27,11 @@ void quickSort(int *data, int start, int end){
 
     while(i <= j){
         // 큰 수와 작은 수가 엇갈릴 때까지 반복
-        while (data[i] <= data[key]) 
+        while (data[i] >= data[key]) 
         {   // 설정한 Pivot보다 큰 값을 만날 때 까지
             i++;
         }
-        while (data[j] >= data[key] && j > start)
+        while (data[j] <= data[key] && j > start)
         {   // 설정한 Pivot보다 작은 값을 만날 때 까지
            j--;
         }
@@ -46,8 +46,6 @@ void quickSort(int *data, int start, int end){
         }
         quickSort(data,start,j-1);
         quickSort(data,j+1,end);
-        
-         
     }
 }
 
