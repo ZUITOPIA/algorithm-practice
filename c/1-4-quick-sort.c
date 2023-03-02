@@ -1,6 +1,6 @@
 // 특정한 값(Pivot)을 기준으로 큰 숫자와 작은 숫자를 나누는 알고리즘
 // 퀵 정렬의 시간 복잡도 O(N^2)
-// 특징 : 대표적인 '분할 정복' 알고리즘으로 평균 속도 O(N * logN)
+// 특징 : 대표적인 '분할 정복 기법' 알고리즘으로 평균 속도 O(N * logN)
 // 그러나 최악의 경우(이미 전체 정렬이 되어있는 경우) -> 속도 O(N^2)까지 나올 수 있음
 
 // 추가적인 설명
@@ -20,7 +20,7 @@ void quickSort(int *data, int start, int end){
         return;
     }
 
-    int key = start; // Pivot은 첫번째 원소로 설정
+    int key = start; // Pivot(key)은 첫번째 원소로 설정
     int i = start + 1; // 맨 왼쪽은 Pivot, 그 다음 원소의 위치를 i로 지정하기 위해 +1
     int j = end; // 맨 오른쪽 원소 위치를 j로 지정
     int temp;
