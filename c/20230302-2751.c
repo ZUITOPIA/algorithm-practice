@@ -26,7 +26,7 @@ void quickSort(int *data, int start, int end){
         }
     }
     quickSort(data, start, j-1);
-    quickSort(data, j+1, end);  // ? 
+    quickSort(data, j+1, end);
 }
 
 int main(){
