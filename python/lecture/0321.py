@@ -1,6 +1,6 @@
 # 순차 탐색
 A = [int(n) for n in input().split()]
-key = ...
+key = ... # 놓쳤다!
 def sequential_search(A, key):
     for i in range(len(A)):
         if A[i] == key:
