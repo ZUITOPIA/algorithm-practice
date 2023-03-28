@@ -36,8 +36,9 @@ def unique_elements(A):
     for i in range(n-1):
         for j in range(i+1,n):
             if A[i] == A[j]:
-                return 
-            return 
+                return False
+    return True
+
         
 
 # 팩토리얼
@@ -67,4 +68,4 @@ def binary_digits(n):
     if n <= 1: 
         return 1
     else:
-        return 1 + binary_digits(n/1)
+        return 1 + binary_digits(n // 2)
