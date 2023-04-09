@@ -54,7 +54,7 @@ def closest_pair(p):
                 mindist = dist
     return mindist
 
-print("최근점 거리:", closest_pair(p))
+print("최근접 거리:", closest_pair(p))
 
 # 완전 탐색
 # -> 상태공간트리의 모든 단말 노드를 검사하여 길이가 최소인 것을 선택하는 전략
