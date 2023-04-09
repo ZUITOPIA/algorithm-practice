@@ -20,7 +20,7 @@ def sequential_search(A, key):
     for i in range(len(A)):
         if A[i] == key:
             return i
-        return -1
+    return -1
     
 # 억지 기법
 # 1. 문자열 매칭 : 최선 O(m) / 최악 O(mn)
@@ -37,7 +37,14 @@ def string_matching(T, P):
     return -1
 
 # 2. 최근접 점의 쌍의 거리 : O(n^2)
-def closets_pair(p):
+import math
+import sys
+INF = sys.maxsize
+
+def distance(p1, p2):
+    return ((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)**0.5
+
+def closest_pair(p):
     n = len(p)
     mindist = float("inf")
     for i in range(n-1):
@@ -46,6 +53,8 @@ def closets_pair(p):
             if dist < mindist:
                 mindist = dist
     return mindist
+
+print("최근점 거리:", closest_pair(p))
 
 # 완전 탐색
 # -> 상태공간트리의 모든 단말 노드를 검사하여 길이가 최소인 것을 선택하는 전략
