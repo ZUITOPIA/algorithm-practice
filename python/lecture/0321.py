@@ -61,7 +61,17 @@ def binary(n):
     while n > 1:
         count = count +1
         n = n // 2
-    return count
+    return count # n이 13일 때 count는 4
+
+
+def binary_digit(n):
+    k = 1
+    count = 0
+    while k <= n:
+        count += 1
+        k *= 2
+    return count # n이 13일 때 count는 4
+
 
 # 자연수의 이진수 변환에서 총 비트수 계산(순환)
 def binary_digits(n):
