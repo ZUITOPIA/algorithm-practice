@@ -42,6 +42,15 @@ def topological_sort(graph):
             if inDeg[u] == 0:
                 vlist.append(u)
 
+# 위상정렬 집합으로 입력 받기
+mygraph = dict()
+for i in range(int(input())):
+    mygraph[chr(ord('A') + i)] = set()
+
+for _ in range(int(input())):
+    e1, e2 = input().split()[:2]
+    mygraph[e1] |= {e2}
+
 # 이진 탐색(순환구조)
 def binary_search(A, key, low, high):
     if(low <= high):
