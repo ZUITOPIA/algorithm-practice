@@ -3,7 +3,7 @@
 def factorial(n):
     # None이라고 되어있는 부분을 수정해보세요
     result = 1
-    for k in range(n, 0, -1):
+    for k in range(n, 0, -1):  # n 이상 0 미만, 역방향으로
         result = result * k
     return result
 

@@ -4,7 +4,7 @@ def binary(n):
     count = 1
     while n > 1:
         count = count +1
-        n = n // 2
+        n = n // 2  # 몫 구하는 방법
     return count
 
 
