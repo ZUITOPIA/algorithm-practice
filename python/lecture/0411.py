@@ -134,3 +134,110 @@ def partition(A, left, right):
 
     A[left], A[high] = A[high], A[left]
     return high
+
+def partition(A, left, right) :
+    low = left + 1
+    high = right
+    pivot = A[left]
+    while (low <= high):
+        while low <= right and A[low] <= pivot : low += 1 
+        while high >= left and A[high] > pivot : high -= 1
+
+        if low < high:
+            A[low], A[high] = A[high], A[low]
+
+    A[left], A[high] = A[high], A[left]
+    return high
+
+
+class TNode: # 이진트리를 위한 노드 클래스
+    def __init__(self, data, left, right):
+        self.data = data
+        self.left = left
+        self.right = right
+
+
+def calc_height(root) : # 이진트리의 높이
+    if root is None:
+        return 0
+    
+    hLeft = calc_height(root.left)
+    hRight = calc_height(root.right)
+    return max(hLeft, hRight) + 1
+
+# 입력
+n = int(input())
+binary_tree = [TNode(0,0,0) for _ in range(n)]
+
+for i in range(n):
+    data, left, right = [int(m) for m in input().split()[:3]]
+
+    binary_tree[i].data = data
+    binary_tree[i].left = binary_tree[left-1] if left > 0 else None
+    binary_tree[i].right = binary_tree[right-1] if right > 0 else None
+
+# 이진트리 전위 순회
+def preorder(n) :
+    if n is not None:
+        print(n.data, end=" ")
+        preorder(n.left)
+        preorder(n.right)
+
+# 이진트리 중위 순회
+def inorder(n):
+    if n is not None:
+        inorder(n.left)
+        print(n.data, end=" ")
+        inorder(n.right)
+
+# 이진트리 후위 순회
+def postorder(n):
+    if n is not None:
+        postorder(n.left)
+        postorder(n.right)
+        print(n.data, end=" ")
+
+# 피보나치수열 (분할정복)
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
+    
+# 피보나치수열 (반복 구조)
+def fib_iter(n):
+    if (n<2) : return n
+    last = 0
+    current = 1
+    for i in range(2, n+1):
+        tmp = current
+        current += last
+        last = tmp
+    return current
+
+# 피보나치수열 (축소정복기법의 행렬거듭제곱 이용)
+def fib_mat(n):
+    if n < 2:
+        return n
+    mat = [[1,1], [1,0]]
+    result = powerMat(mat, n)
+    return result[0][1]
+
+def powerMat(x, n) : # powerMat(x, n) 함수
+	if n == 1 :
+		return x
+	elif (n % 2) == 0 :
+		return powerMat(multMat(x,x), n // 2)
+	else :
+		return multMat(x, powerMat(multMat(x,x), (n - 1) // 2)) 
+
+
+def multMat(M1, M2): # multMat(M1, M2) 함수
+    result = [[0 for _ in range(len(M2[0]))] for __ in range(len(M1))]
+    for i in range(len(M1)):
+        for j in range(len(M2[0])):
+            for k in range(len(M1[0])):
+                result[i][j] += M1[i][k] * M2[k][j]
+    return result
